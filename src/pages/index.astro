@@ -1,0 +1,148 @@
+---
+import '../styles/global.css';
+
+const projects = [
+  { number: '01', name: 'Nébula Commerce', type: 'Vender en internet', tone: 'mint', copy: 'Transformamos un catálogo de productos en una experiencia de compra simple, rápida y convincente.' },
+  { number: '02', name: 'Atlas', type: 'Trabajar de forma más simple', tone: 'peach', copy: 'Convertimos tareas y procesos dispersos en una herramienta clara que todo el equipo puede entender.' },
+  { number: '03', name: 'Marea Studio', type: 'Mostrar el valor de una marca', tone: 'lilac', copy: 'Creamos un espacio digital con carácter para presentar su trabajo y convertir visitas en conversaciones.' },
+];
+const whatsappMessage = encodeURIComponent('Hola Ungravity, tengo una idea y quiero platicarles sobre ella.');
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Convertimos ideas y negocios en experiencias digitales claras, humanas y listas para crecer." />
+    <meta name="theme-color" content="#0c0b10" />
+    <link rel="icon" type="image/png" href="/brand/ungravity-mark.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <title>Ungravity — Desarrollo web sin límites</title>
+  </head>
+  <body class="noise">
+    <header class="absolute inset-x-0 top-0 z-40 py-5">
+      <nav class="wrap flex items-center justify-between" aria-label="Navegación principal">
+        <a href="#inicio" class="flex items-center gap-3" aria-label="Ungravity, inicio">
+          <img src="/brand/ungravity-mark.png" alt="" class="h-10 w-11 object-contain" />
+          <span class="display text-xl font-extrabold tracking-tight">ungravity</span>
+        </a>
+        <div class="hidden items-center gap-8 text-sm font-bold sm:flex">
+          <a href="#proyectos" class="transition-colors hover:text-pink">Lo que hacemos</a>
+          <a href="#contacto" class="transition-colors hover:text-pink">Hablemos</a>
+        </div>
+        <div class="flex items-center gap-2" aria-label="Redes sociales">
+          <a href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub de Ungravity" class="grid h-10 w-10 place-items-center rounded-full border border-white/25 text-white transition-colors hover:border-pink hover:text-pink focus-visible:border-pink focus-visible:text-pink focus-visible:outline-none">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-[1.1rem] w-[1.1rem]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7A5.4 5.4 0 0 0 19.4 4 5 5 0 0 0 19.3.5S18.2.1 15 1.8a13.4 13.4 0 0 0-7 0C4.8.1 3.7.5 3.7.5A5 5 0 0 0 3.6 4a5.4 5.4 0 0 0-1.4 3.7c0 5.4 3.5 6.6 6.8 7A4.8 4.8 0 0 0 8 18v4" /><path d="M8 19c-3 .9-3-1.5-4-2" /></svg>
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn de Ungravity" class="grid h-10 w-10 place-items-center rounded-full border border-white/25 text-white transition-colors hover:border-pink hover:text-pink focus-visible:border-pink focus-visible:text-pink focus-visible:outline-none">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-[1.1rem] w-[1.1rem]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook de Ungravity" class="grid h-10 w-10 place-items-center rounded-full border border-white/25 text-white transition-colors hover:border-pink hover:text-pink focus-visible:border-pink focus-visible:text-pink focus-visible:outline-none">
+            <svg viewBox="0 0 24 24" aria-hidden="true" class="h-[1.1rem] w-[1.1rem]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.5l.5-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="inicio" class="relative flex min-h-screen items-center overflow-hidden pt-28">
+        <div class="absolute -right-24 top-24 h-80 w-80 rounded-full bg-pink/25 blur-[110px]"></div>
+        <div class="absolute -left-28 bottom-0 h-72 w-72 rounded-full bg-mint/15 blur-[100px]"></div>
+        <div class="wrap relative grid items-center gap-14 pb-16 lg:grid-cols-[1.15fr_.85fr]">
+          <div>
+            <p class="eyebrow reveal mb-6 text-mint">Driven by humans, powered by AI.</p>
+            <h1 class="display reveal delay-1 text-[clamp(3rem,7vw,6.5rem)] font-extrabold leading-[.9] tracking-[-.04em]">
+              Te ayudamos a crear<br /><span class="text-pink">lo increíble.</span>
+            </h1>
+            <div class="reveal delay-2 mt-9 flex max-w-2xl flex-col gap-7 md:flex-row md:items-end md:justify-between">
+              <p class="max-w-md text-base leading-7 text-white/65 md:text-lg">Solo necesitas una buena idea y el equipo correcto. Diseñamos la presencia digital que tu negocio necesita para comenzar, crecer y destacar.</p>
+              <a href="#contacto" class="btn btn-primary shrink-0">Hagamos que suceda <span aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+          <div class="relative mx-auto aspect-square w-full max-w-[460px]" aria-hidden="true">
+            <div class="absolute inset-3 rounded-full border border-dashed border-white/25"></div>
+            <div class="absolute inset-[17%] rounded-full border border-pink/50"></div>
+            <div class="absolute inset-[30%] rounded-full bg-cream shadow-[0_0_90px_#ff00f555]"></div>
+            <img src="/brand/ungravity-mark.png" alt="" class="absolute inset-[35%] h-[30%] w-[30%] object-contain brightness-0" />
+            <span class="absolute left-[7%] top-[18%] h-10 w-10 rounded-full bg-mint shadow-[0_0_35px_#a9ffd6] [animation:float_5s_ease-in-out_infinite]"></span>
+            <span class="absolute bottom-[8%] right-[16%] h-16 w-16 rounded-full bg-peach [animation:float_6s_ease-in-out_infinite_reverse]"></span>
+            <span class="display absolute right-0 top-[45%] -rotate-6 rounded-full bg-pink px-4 py-2 text-sm font-extrabold">ideas en órbita</span>
+          </div>
+        </div>
+        <div class="marquee absolute bottom-0 left-0 w-full overflow-hidden border-y border-white/10 bg-white/[.03] py-3 text-xs font-extrabold uppercase tracking-[.22em] text-white/60" data-marquee aria-label="Servicios de Ungravity">
+          <div class="marquee-track" aria-hidden="true">
+            <div class="marquee-group"><span>Desarrollo web</span><span>✦</span><span>Estrategia digital</span><span>✦</span><span>Diseño UX/UI</span><span>✦</span><span>E-commerce</span><span>✦</span><span>Manejo de contenido</span><span>✦</span></div>
+            <div class="marquee-group"><span>Desarrollo web</span><span>✦</span><span>Estrategia digital</span><span>✦</span><span>Diseño UX/UI</span><span>✦</span><span>E-commerce</span><span>✦</span><span>Manejo de contenido</span><span>✦</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="proyectos" class="bg-cream py-24 text-ink md:py-36">
+        <div class="wrap">
+          <div class="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div><p class="eyebrow mb-4 text-pink">Del “algún día” al “ya está online”</p><h2 class="display text-5xl font-extrabold tracking-[-.04em] md:text-7xl">Ideas que dejaron<br />de ser borradores.</h2></div>
+            <p class="max-w-sm leading-7 text-ink/60">Creamos experiencias digitales que ayudan a negocios reales a verse profesionales, conectar con personas y abrir nuevas oportunidades.</p>
+          </div>
+          <div class="grid gap-5 lg:grid-cols-3">
+            {projects.map((project, index) => (
+              <article class={`group relative flex min-h-[430px] flex-col overflow-hidden rounded-[2rem] border border-ink/10 p-7 ${index === 0 ? 'bg-mint' : index === 1 ? 'bg-peach' : 'bg-lilac'}`}>
+                <div class="flex items-center justify-between"><span class="eyebrow">{project.number}</span><span class="grid h-11 w-11 place-items-center rounded-full border border-ink/20 transition-transform duration-300 group-hover:-rotate-45">↗</span></div>
+                <div class="my-auto grid place-items-center py-8">
+                  <div class="relative grid h-44 w-44 place-items-center rounded-full border border-ink/15 transition-transform duration-500 group-hover:scale-110">
+                    <div class="h-24 w-24 rotate-12 rounded-[30%_70%_60%_40%] bg-ink shadow-[10px_12px_0_rgba(255,255,255,.35)]"></div>
+                  </div>
+                </div>
+                <p class="eyebrow mb-3 opacity-60">{project.type}</p>
+                <h3 class="display text-3xl font-extrabold tracking-tight">{project.name}</h3>
+                <p class="mt-3 text-sm leading-6 text-ink/65">{project.copy}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="relative overflow-hidden py-24 md:py-36">
+        <div class="absolute right-[-10rem] top-[-8rem] h-[30rem] w-[30rem] rounded-full bg-pink/20 blur-[130px]"></div>
+        <div class="wrap relative grid gap-16 lg:grid-cols-[.82fr_1.18fr]">
+          <div>
+            <p class="eyebrow mb-5 text-mint">Aquí empieza</p>
+            <h2 class="display text-5xl font-extrabold leading-[.95] tracking-[-.04em] md:text-7xl">Tú traes la idea.<br /><span class="text-pink">Nosotros hacemos el resto.</span></h2>
+            <p class="mt-7 max-w-md leading-7 text-white/60">Puede ser un negocio nuevo, una marca que necesita renovarse o una idea que todavía vive en una libreta. Cuéntanos dónde estás y construiremos juntos el camino para llevarla online.</p>
+            <a href={`https://wa.me/?text=${whatsappMessage}`} target="_blank" rel="noreferrer" class="btn btn-light mt-9">Cuéntanos de tu proyecto <span aria-hidden="true">↗</span></a>
+          </div>
+          <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/gracias" class="rounded-[2rem] border border-white/15 bg-white/[.055] p-6 backdrop-blur-md md:p-9">
+            <input type="hidden" name="form-name" value="contacto" />
+            <p class="hidden"><label>No llenes este campo: <input name="bot-field" /></label></p>
+            <div class="grid gap-6 md:grid-cols-2">
+              <label class="text-sm font-bold">¿Cómo te llamas?<input required name="nombre" autocomplete="name" placeholder="Tu nombre" class="mt-2 w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3.5 font-normal outline-none transition focus:border-pink" /></label>
+              <label class="text-sm font-bold">¿Dónde podemos responderte?<input required type="email" name="email" autocomplete="email" placeholder="hola@empresa.com" class="mt-2 w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3.5 font-normal outline-none transition focus:border-pink" /></label>
+              <label class="text-sm font-bold md:col-span-2">¿Cómo se llama tu proyecto? <span class="font-normal text-white/35">(opcional)</span><input name="empresa" autocomplete="organization" placeholder="El nombre de tu proyecto" class="mt-2 w-full rounded-xl border border-white/15 bg-black/20 px-4 py-3.5 font-normal outline-none transition focus:border-pink" /></label>
+              <label class="text-sm font-bold md:col-span-2">¿Qué quieres hacer realidad?<textarea required name="mensaje" rows="4" placeholder="Cuéntanos sobre tu negocio, tu idea y lo que te gustaría lograr." class="mt-2 w-full resize-none rounded-xl border border-white/15 bg-black/20 px-4 py-3.5 font-normal outline-none transition focus:border-pink"></textarea></label>
+            </div>
+            <button class="btn btn-primary mt-7 w-full sm:w-auto" type="submit">Dar el primer paso <span aria-hidden="true">→</span></button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 py-8">
+      <div class="wrap flex flex-col gap-5 text-sm text-white/45 sm:flex-row sm:items-center sm:justify-between">
+        <a href="#inicio" class="display text-lg font-extrabold text-white">ungravity<span class="text-pink">.</span></a>
+        <p>Grandes ideas. Tecnología humana.</p>
+        <p>© {new Date().getFullYear()} Ungravity</p>
+      </div>
+    </footer>
+    <script>
+      const marquee = document.querySelector('[data-marquee]');
+      if (marquee) {
+        const observer = new IntersectionObserver(([entry]) => {
+          marquee.classList.toggle('is-visible', entry.isIntersecting);
+        });
+        observer.observe(marquee);
+      }
+    </script>
+  </body>
+</html>
