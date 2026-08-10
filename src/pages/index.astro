@@ -1,12 +1,14 @@
 ---
 import '../styles/global.css';
+import { WORK_NUMBER } from 'astro:env/server';
 
 const projects = [
-  { number: '01', name: 'Nébula Commerce', type: 'Vender en internet', tone: 'mint', copy: 'Transformamos un catálogo de productos en una experiencia de compra simple, rápida y convincente.' },
+  { number: '01', name: 'Nycteria Store', type: 'Vender en internet', tone: 'mint', copy: 'Transformamos un catálogo de productos en una experiencia de compra simple, rápida y convincente.' },
   { number: '02', name: 'Atlas', type: 'Trabajar de forma más simple', tone: 'peach', copy: 'Convertimos tareas y procesos dispersos en una herramienta clara que todo el equipo puede entender.' },
-  { number: '03', name: 'Marea Studio', type: 'Mostrar el valor de una marca', tone: 'lilac', copy: 'Creamos un espacio digital con carácter para presentar su trabajo y convertir visitas en conversaciones.' },
+  { number: '03', name: 'Sisterhood Terapia', type: 'Mostrar el valor de una marca', tone: 'lilac', copy: 'Creamos un espacio digital con carácter para presentar su trabajo y convertir visitas en conversaciones.' },
 ];
 const whatsappMessage = encodeURIComponent('Hola Ungravity, tengo una idea y quiero platicarles sobre ella.');
+const whatsappFullUrl = `https://wa.me/${WORK_NUMBER.replace(/\D/g, '')}?text=${whatsappMessage}`;
 ---
 
 <!doctype html>
@@ -111,9 +113,9 @@ const whatsappMessage = encodeURIComponent('Hola Ungravity, tengo una idea y qui
             <p class="eyebrow mb-5 text-mint">Aquí empieza</p>
             <h2 class="display text-5xl font-extrabold leading-[.95] tracking-[-.04em] md:text-7xl">Tú traes la idea.<br /><span class="text-pink">Nosotros hacemos el resto.</span></h2>
             <p class="mt-7 max-w-md leading-7 text-white/60">Puede ser un negocio nuevo, una marca que necesita renovarse o una idea que todavía vive en una libreta. Cuéntanos dónde estás y construiremos juntos el camino para llevarla online.</p>
-            <a href={`https://wa.me/?text=${whatsappMessage}`} target="_blank" rel="noreferrer" class="btn btn-light mt-9">Cuéntanos de tu proyecto <span aria-hidden="true">↗</span></a>
+            <a href={whatsappFullUrl} target="_blank" rel="noreferrer" class="btn btn-light mt-9">Cuéntanos de tu proyecto <span aria-hidden="true">↗</span></a>
           </div>
-          <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/pages/gracias" class="rounded-[2rem] border border-white/15 bg-white/[.055] p-6 backdrop-blur-md md:p-9">
+          <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/gracias" class="rounded-[2rem] border border-white/15 bg-white/[.055] p-6 backdrop-blur-md md:p-9">
             <input type="hidden" name="form-name" value="contacto" />
             <p class="hidden"><label>No llenes este campo: <input name="bot-field" /></label></p>
             <div class="grid gap-6 md:grid-cols-2">
