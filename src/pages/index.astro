@@ -3,10 +3,15 @@ import '../styles/global.css';
 import { WORK_NUMBER } from 'astro:env/server';
 
 const projects = [
-  { number: '01', name: 'Nycteria Store', type: 'Vender en internet', tone: 'mint', copy: 'Transformamos un catálogo de productos en una experiencia de compra simple, rápida y convincente.' },
-  { number: '02', name: 'Atlas', type: 'Trabajar de forma más simple', tone: 'peach', copy: 'Convertimos tareas y procesos dispersos en una herramienta clara que todo el equipo puede entender.' },
-  { number: '03', name: 'Sisterhood Terapia', type: 'Mostrar el valor de una marca', tone: 'lilac', copy: 'Creamos un espacio digital con carácter para presentar su trabajo y convertir visitas en conversaciones.' },
+  { number: '01', name: 'Nycteria Store', type: 'Vender en internet', tone: 'crimson', url: 'https://nycteria.com', image: '/projects/nycteria.webp', copy: 'Transformamos un catálogo de productos en una experiencia de compra simple, rápida y convincente.' },
+  { number: '02', name: 'OsoPostal', type: 'SaaS modernos y escalables', tone: 'peach', url: null, image: '/projects/osopostal.webp', copy: 'Llevamos la idea a la implementación, ofreciendo el acompañamiento técnico en cada etapa del producto y asegurando su escalabilidad.' },
+  { number: '03', name: 'Sisterhood Terapia', type: 'Mostrar el valor de una marca', tone: 'lilac', url: 'https://sisterhoodterapia.com', image: '/projects/sisterhood.webp', copy: 'Diseñamos un espacio cercano y confiable, pensado para que las personas que buscan apoyo encuentren a quien puede ayudarlas y den el primer paso.' },
 ];
+const toneClasses: Record<string, string> = {
+  crimson: 'bg-crimson text-cream',
+  peach: 'bg-peach text-ink',
+  lilac: 'bg-lilac text-ink',
+};
 const whatsappMessage = encodeURIComponent('Hola Ungravity, tengo una idea y quiero platicarles sobre ella.');
 const whatsappFullUrl = `https://wa.me/${WORK_NUMBER.replace(/\D/g, '')}?text=${whatsappMessage}`;
 ---
@@ -15,7 +20,7 @@ const whatsappFullUrl = `https://wa.me/${WORK_NUMBER.replace(/\D/g, '')}?text=${
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Convertimos ideas y negocios en experiencias digitales claras, humanas y listas para crecer." />
     <meta name="theme-color" content="#0c0b10" />
     <link rel="icon" type="image/png" href="/brand/ungravity-mark.png" />
@@ -56,7 +61,7 @@ const whatsappFullUrl = `https://wa.me/${WORK_NUMBER.replace(/\D/g, '')}?text=${
         <div class="wrap relative grid items-center gap-14 pb-16 lg:grid-cols-[1.15fr_.85fr]">
           <div>
             <p class="eyebrow reveal mb-6 text-mint">Driven by humans, powered by AI.</p>
-            <h1 class="display reveal delay-1 text-[clamp(3rem,7vw,6.5rem)] font-extrabold leading-[.9] tracking-[-.04em]">
+            <h1 class="display reveal delay-1 text-[clamp(2rem,10vw,3rem)] md:text-[clamp(3rem,7vw,6.5rem)] font-extrabold leading-[.9] tracking-[-.04em]">
               Te ayudamos a crear<br /><span class="text-pink">lo increíble.</span>
             </h1>
             <div class="reveal delay-2 mt-9 flex max-w-2xl flex-col gap-7 md:flex-row md:items-end md:justify-between">
@@ -85,21 +90,35 @@ const whatsappFullUrl = `https://wa.me/${WORK_NUMBER.replace(/\D/g, '')}?text=${
       <section id="proyectos" class="bg-cream py-24 text-ink md:py-36">
         <div class="wrap">
           <div class="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div><p class="eyebrow mb-4 text-pink">Del “algún día” al “ya está online”</p><h2 class="display text-5xl font-extrabold tracking-[-.04em] md:text-7xl">Ideas que dejaron<br />de ser borradores.</h2></div>
+            <div><p class="eyebrow mb-4 text-pink">Del “algún día” al “ya está online”</p><h2 class="display text-[clamp(2rem,10vw,3rem)] font-extrabold tracking-[-.04em] md:text-7xl">Ideas que dejaron<br />de ser borradores.</h2></div>
             <p class="max-w-sm leading-7 text-ink/60">Creamos experiencias digitales que ayudan a negocios reales a verse profesionales, conectar con personas y abrir nuevas oportunidades.</p>
           </div>
           <div class="grid gap-5 lg:grid-cols-3">
-            {projects.map((project, index) => (
-              <article class={`group relative flex min-h-[430px] flex-col overflow-hidden rounded-[2rem] border border-ink/10 p-7 ${index === 0 ? 'bg-mint' : index === 1 ? 'bg-peach' : 'bg-lilac'}`}>
-                <div class="flex items-center justify-between"><span class="eyebrow">{project.number}</span><span class="grid h-11 w-11 place-items-center rounded-full border border-ink/20 transition-transform duration-300 group-hover:-rotate-45">↗</span></div>
-                <div class="my-auto grid place-items-center py-8">
-                  <div class="relative grid h-44 w-44 place-items-center rounded-full border border-ink/15 transition-transform duration-500 group-hover:scale-110">
-                    <div class="h-24 w-24 rotate-12 rounded-[30%_70%_60%_40%] bg-ink shadow-[10px_12px_0_rgba(255,255,255,.35)]"></div>
+            {projects.map((project) => (
+              <article class={`group relative flex min-h-[430px] flex-col overflow-hidden rounded-[2rem] border border-current/10 p-7 ${toneClasses[project.tone]}`}>
+                <div class="flex items-center justify-between">
+                  <span class="eyebrow">{project.number}</span>
+                  {project.url
+                    ? <span aria-hidden="true" class="grid h-11 w-11 place-items-center rounded-full border border-current/25 transition-transform duration-300 group-hover:-rotate-45">↗</span>
+                    : <span title="En construcción" class="grid h-11 w-11 place-items-center rounded-full border border-current/25 text-lg"><span aria-hidden="true">🚧</span><span class="sr-only">En construcción</span></span>}
+                </div>
+                <div class="py-8">
+                  <div class="overflow-hidden rounded-2xl border border-ink/15 bg-white shadow-[10px_12px_0_rgba(255,255,255,.35)] transition-transform duration-500 group-hover:-translate-y-1 motion-reduce:transition-none">
+                    <div class="flex items-center gap-1.5 border-b border-ink/10 bg-white px-3 py-2" aria-hidden="true">
+                      <span class="h-2 w-2 rounded-full bg-ink/15"></span><span class="h-2 w-2 rounded-full bg-ink/15"></span><span class="h-2 w-2 rounded-full bg-ink/15"></span>
+                      <span class="ml-2 flex-1 truncate rounded-full bg-ink/[.06] px-3 py-0.5 text-[.68rem] font-semibold text-ink/50">{project.url ? project.url.replace('https://', '') : 'en desarrollo'}</span>
+                    </div>
+                    <div class="relative aspect-[4/3] overflow-hidden">
+                      <img src={project.image} alt={`Captura del sitio de ${project.name}`} width="720" height="1800" loading="lazy" decoding="async" class="absolute inset-x-0 top-0 w-full transition-transform duration-[3000ms] ease-in-out group-hover:-translate-y-[70%] motion-reduce:transition-none motion-reduce:group-hover:translate-y-0" />
+                    </div>
                   </div>
                 </div>
-                <p class="eyebrow mb-3 opacity-60">{project.type}</p>
+                <p class="eyebrow mt-auto mb-3 opacity-60">{project.type}</p>
                 <h3 class="display text-3xl font-extrabold tracking-tight">{project.name}</h3>
-                <p class="mt-3 text-sm leading-6 text-ink/65">{project.copy}</p>
+                <p class="mt-3 text-sm leading-6 opacity-75">{project.copy}</p>
+                {project.url
+                  ? <a href={project.url} target="_blank" rel="noreferrer" class="mt-5 inline-flex items-center gap-1.5 self-start text-sm font-bold underline decoration-current/40 underline-offset-4 transition-colors after:absolute after:inset-0 after:content-[''] hover:decoration-current focus-visible:outline-none focus-visible:after:rounded-[2rem] focus-visible:after:ring-2 focus-visible:after:ring-current">{project.url.replace('https://', '')} <span aria-hidden="true">↗</span></a>
+                  : <p class="mt-5 text-sm font-bold opacity-60">Próximamente</p>}
               </article>
             ))}
           </div>
@@ -111,7 +130,7 @@ const whatsappFullUrl = `https://wa.me/${WORK_NUMBER.replace(/\D/g, '')}?text=${
         <div class="wrap relative grid gap-16 lg:grid-cols-[.82fr_1.18fr]">
           <div>
             <p class="eyebrow mb-5 text-mint">Aquí empieza</p>
-            <h2 class="display text-5xl font-extrabold leading-[.95] tracking-[-.04em] md:text-7xl">Tú traes la idea.<br /><span class="text-pink">Nosotros hacemos el resto.</span></h2>
+            <h2 class="display text-[clamp(2rem,10vw,3rem)] font-extrabold leading-[.95] tracking-[-.04em] md:text-7xl">Tú traes la idea.<br /><span class="text-pink">Nosotros hacemos el resto.</span></h2>
             <p class="mt-7 max-w-md leading-7 text-white/60">Puede ser un negocio nuevo, una marca que necesita renovarse o una idea que todavía vive en una libreta. Cuéntanos dónde estás y construiremos juntos el camino para llevarla online.</p>
             <a href={whatsappFullUrl} target="_blank" rel="noreferrer" class="btn btn-light mt-9">Cuéntanos de tu proyecto <span aria-hidden="true">↗</span></a>
           </div>

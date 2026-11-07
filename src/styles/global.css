@@ -10,6 +10,7 @@
   --color-mint: #a9ffd6;
   --color-peach: #ffb58c;
   --color-lilac: #c8b7ff;
+  --color-crimson: #a3122f;
 }
 
 :root {
@@ -22,7 +23,8 @@
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; min-width: 320px; overflow-x: hidden; background: var(--color-surface); }
+html { overflow-x: clip; }
+body { margin: 0; min-width: 320px; overflow-x: clip; background: var(--color-surface); }
 ::selection { background: var(--color-pink); color: #fff; }
 
 .noise::before {
